@@ -33,7 +33,7 @@ pipeline {
                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
                 // Run Maven on a Unix agent.
-                sh "./mvnw -Dmaven.test.skip package clean test"
+                sh "./mvnw -Dmaven.test.failure.ignore=true clean test"
 
              }
 
@@ -52,7 +52,7 @@ pipeline {
                 git branch: "${env.BRANCH_NAME}", url: 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
                 // Run Maven on a Unix agent.
-                sh "./mvnw -Dmaven.test.failure.ignore=true clean spring-boot:build-image"
+                sh "./mvnw -Dmaven.test.skip clean spring-boot:build-image"
             }
         }
     }
