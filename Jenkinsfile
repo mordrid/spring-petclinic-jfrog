@@ -4,7 +4,7 @@ pipeline {
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "3.8.5"
-        jdk "JDK8"
+        jdk "JDK11"
     }
 
     stages {
