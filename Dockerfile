@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk-alpine
+FROM openjdk:11.0.15-jdk-buster
 
 ARG JAR_FILE
 ADD $JAR_FILE target/app.jar

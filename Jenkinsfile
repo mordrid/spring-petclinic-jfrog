@@ -33,7 +33,7 @@ pipeline {
                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
                 // Run Maven on a Unix agent.
-                sh "./mvnw -Dmaven.test.failure.ignore=true clean test"
+                sh "./mvnw -Dmaven.test.failure.ignore=true test"
 
              }
 
@@ -51,8 +51,8 @@ pipeline {
                 // Get Pet Clinic code
                 git branch: "${env.BRANCH_NAME}", url: 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
-                // Run Maven on a Unix agent.
-                sh "./mvnw -Dmaven.test.skip clean spring-boot:build-image"
+                // Docker Build with built jar as arg
+                sh "docker build --build-arg JAR_FILE=target/*.jar -t vcem.jfrog.io/default-docker-virtual/spring-petclinic-jfrog:${env.BUILD_NUMBER} ."
             }
         }
     }
