@@ -10,6 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                checkout scm
                 // Get Pet Clinic code
                 git 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
