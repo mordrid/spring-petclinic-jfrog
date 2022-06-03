@@ -52,7 +52,7 @@ pipeline {
                 git branch: "${env.BRANCH_NAME}", url: 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
                 // Docker Build with built jar as arg
-                sh "docker build --build-arg JAR_FILE=target/*.jar -t https://vcem.jfrog.io/artifactory/default-docker-virtual/spring-petclinic-jfrog ."
+                sh "docker build --build-arg JAR_FILE=target/*.jar -t vcem.jfrog.io/default-docker-virtual/spring-petclinic-jfrog:${env.BUILD_NUMBER} ."
             }
         }
     }
