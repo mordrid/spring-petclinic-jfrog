@@ -10,9 +10,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                checkout scm
+
                 // Get Pet Clinic code
-                git 'https://github.com/mordrid/spring-petclinic-jfrog.git'
+                git branch: 'jenkinsfile', url: 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
                 // Run Maven on a Unix agent.
                 sh "./mvnw -Dmaven.test.failure.ignore=true clean package"
