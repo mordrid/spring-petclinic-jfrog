@@ -33,7 +33,7 @@ pipeline {
                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/mordrid/spring-petclinic-jfrog.git'
 
                 // Run Maven on a Unix agent.
-                sh "./mvnw -Dmaven.test.skip package clean "
+                sh "./mvnw -Dmaven.test.skip package clean test"
 
              }
 
