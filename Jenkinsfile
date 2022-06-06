@@ -30,7 +30,8 @@ pipeline {
                                     "target:" "default-maven-virtual/jfrog-testing/"
                                 }
                             ]
-                        }'''
+                        }''',
+                        buildNumber: '${env.BUILD_ID}'
                     )
                 }
             }
