@@ -23,14 +23,7 @@ pipeline {
                 success {
                     rtUpload (
                         serverId: 'Artifactory-test',
-                        spec: '''{
-                            "files": [
-                                {
-                                    "pattern": "target/*.jar",
-                                    "target:" "default-maven-virtual/jfrog-testing/"
-                                }
-                            ]
-                        }''',
+                        specPath: "target/spring-petclinic-2.7.0-SNAPSHOT.jar",
                         buildNumber: '${env.BUILD_ID}'
                     )
                 }
