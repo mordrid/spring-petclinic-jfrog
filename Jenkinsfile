@@ -21,7 +21,18 @@ pipeline {
 
             post {
                 success {
-                    archiveArtifacts 'target/*.jar'
+                    rtUpload (
+                        serverId: 'Artifactory-test',
+                        spec: '''{
+                            "files": [
+                                {
+                                    "pattern": "target/*.jar",
+                                    "target": "default-maven-virtual/jfrog-testing/"
+                                }
+                            ]
+                        }''',
+                        buildNumber: '${env.BUILD_ID}'
+                    )
                 }
             }
         }
